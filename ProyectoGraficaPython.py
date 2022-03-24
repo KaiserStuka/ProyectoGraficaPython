@@ -105,7 +105,28 @@ def opciones(op):
         menuGraficas(op)
     
     elif op == 5:
-        print("En construccion\n")
+        a = 6
+
+        t = np.linspace(0, 2 * np.pi, 1000)
+        r = (pow(np.cos(t),2) * a * np.sin(t) - pow(np.sin(t),3) /  pow(np.cos(t),4) )
+
+           # Transformación de coordenadas polares a coordenadas cartesianas
+        x, y = r * np.cos(t), r * np.sin(t)
+
+        fig: plt.Figure = plt.figure()
+
+        xmin, xmax, ymin, ymax = -5, 5, -5, 5
+
+        ax = fig.add_subplot()
+        ax.plot(x, y, color="green",linewidth=2)
+
+           # Estilización de la gráfica
+        ax.set(xlim=(xmin-1, xmax+1), ylim=(ymin-1, ymax+1), aspect='equal')
+        ax.spines['bottom'].set_position('zero')
+        ax.spines['left'].set_position('zero')
+        ax.spines['top'].set_visible(False)
+        ax.spines['right'].set_visible(False)
+        plt.show()
         menuGraficas(op)
         
     elif op == 6:
